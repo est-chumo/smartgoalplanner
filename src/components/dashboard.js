@@ -101,49 +101,7 @@ const Dashboard = ({ goals }) => {
         </div>
       </div>
 
-      {/* Charts */}
-      <div className="dashboard-charts">
-        <div className="chart-container">
-          <h3>Savings by Category</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={categoryData}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-                label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-              >
-                {categoryData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip formatter={(value) => [`$${value.toLocaleString()}`, 'Amount Saved']} />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-
-        <div className="chart-container">
-          <h3>Goal Progress</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart
-              data={progressData}
-              margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} />
-              <YAxis />
-              <Tooltip formatter={(value) => [`$${value.toLocaleString()}`, 'Amount']} />
-              <Legend />
-              <Bar dataKey="saved" name="Saved" fill="#82ca9d" />
-              <Bar dataKey="remaining" name="Remaining" fill="#8884d8" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
+      
 
       {/* Recent Activity */}
       <div className="recent-activity">
